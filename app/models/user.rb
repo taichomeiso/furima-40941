@@ -7,8 +7,8 @@ class User < ApplicationRecord
     validates :nickname
     validates :last_name, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'is invalid. Input full-width characters' }
     validates :first_name, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'is invalid. Input full-width characters' }
-    validates :last_name_kana, format: { with: /\A[ァ-ヶヴー]+\z/, message: 'is invalid. Input full-width katakana characters' }
-    validates :first_name_kana, format: { with: /\A[ァ-ヶヴー]+\z/, message: 'is invalid. Input full-width katakana characters' }
+    validates :last_name_kana, format: { with: /\A[ァ-ヴー]+\z/u, message: 'is invalid. Input full-width katakana characters' }
+    validates :first_name_kana, format: { with: /\A[ァ-ヴー]+\z/u, message: 'is invalid. Input full-width katakana characters' }
     validates :birthday
   end
 
