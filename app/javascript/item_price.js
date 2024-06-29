@@ -7,15 +7,11 @@ document.addEventListener('turbo:load', () => {
       const addTaxDom = document.getElementById("add-tax-price");
       const salesProfit = document.getElementById("profit");
 
-      function isNumeric(value) {
-        return !isNaN(parseFloat(value)) && isFinite(value);
-      }
-
-      if (inputValue && isNumeric(inputValue)) { 
-        const taxValue = Math.floor(parseFloat(inputValue) * 0.1); 
+      if (inputValue && !isNaN(inputValue)) { 
+        const taxValue = Math.floor(inputValue * 0.1); 
         addTaxDom.innerHTML = taxValue; 
 
-        const totalProfit = Math.floor(parseFloat(inputValue) - taxValue);
+        const totalProfit = Math.floor(inputValue - taxValue);
         salesProfit.innerHTML = totalProfit;
       } else if (inputValue === '') {
         addTaxDom.innerHTML = ""; 
@@ -28,4 +24,14 @@ document.addEventListener('turbo:load', () => {
   }
 });
 
-// gpt先生が修正しまくりました
+
+
+
+
+
+
+
+
+
+
+
