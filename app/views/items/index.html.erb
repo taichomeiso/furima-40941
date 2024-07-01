@@ -120,9 +120,9 @@
     <ul class='item-lists'>
 
       
-      <% @items.each do |item|%>
+    <% @items.each do |item|%>
       <li class='list'>
-        <%# <%= link_to item_path(item) do %> 
+        <%= link_to item_path(item) do %>
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
 
@@ -150,8 +150,8 @@
         </div>
         <% end %>
       </li>
-      <% end %>
-  
+    <% end %>
+
     <% if @items.empty?%>
       <li class='list'>
         <%= link_to '#' do %>
@@ -171,7 +171,6 @@
         <% end %>
       </li>
     <% end %>
-     
     </ul>
   </div>
 </div>
