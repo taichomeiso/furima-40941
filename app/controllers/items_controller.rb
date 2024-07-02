@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
-  before_action :move_to_root_path, only: [:edit]
+  before_action :move_to_root_path, only: [:edit, :destroy]
 
   def index
     @items = Item.all.order(created_at: :desc)
@@ -35,12 +35,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if current_user.id == @item.user_id
-      @item.destroy
-      redirect_to root_path, notice: 'Item was successfully deleted.'
-    else
-      redirect_to root_path, alert: 'You are not authorized to delete this item.'
-    end
+    @item.destroy
+    redirect_to root_path
   end
 
   private
