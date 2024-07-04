@@ -41,6 +41,8 @@ class OrdersController < ApplicationController
   end
 
   def move_to_root_path
-    redirect_to root_path if current_user == @item.user
+    if current_user != @item.user || @item.order.present?
+      redirect_to root_path
+    end
   end
 end
